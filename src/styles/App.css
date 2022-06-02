@@ -2,12 +2,23 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #FFD29D;
+}
+.breakfast_btn-title {
+  border-radius: 35px;
+  background-color: #1A993D;
+  padding: 5px 20px;
+  margin: 50px;
+  font-family: Verdana;
+  color:white;
+  font-size: 17px;
+  text-decoration-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+
+
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -36,3 +47,4 @@
     transform: rotate(360deg);
   }
 }
+ */
