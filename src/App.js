@@ -1,54 +1,37 @@
-import React, { Fragment, useState } from 'react';
-import BreakfastCart from "./components/BreakfastCart";
+import React from 'react';
+import {
+BrowserRouter as Router,
+Routes,
+Route,
+// Link
+} from 'react-router-dom';
+
+import  Home  from './components/Home';
+import  Login  from './components/Login';
+import  Menu  from './components/Menu';
+import  TableOrders  from './components/TableOrders';
+import  AdminRegister  from './components/AdminRegister';
+import  AdminMenu  from './components/AdminMenu';
 
 // import logo from './logo.svg';
-import './styles/App.css';
 
-function App() {
-// estado de desayuno con listado de productos
-  const [breakfastCart, setBreakfast] = useState([
-  { id:1, nombre:'Café americano', precio: 5 },
-  { id:2, nombre:'Café con leche', precio: 7},
-  { id:3, nombre:'Sandwich de jamón y queso', precio: 10 },
-  { id:4, nombre:'Jugo natural', precio: 7 },
-])
 
-// estado de la orden(carrito)
-const [order, setOrder] = useState([])
-
+export function App() {
   return (
-    //hook que sera un contenedor
-    <Fragment>
-      <button className='breakfast_btn-title'><h3>Desayuno</h3></button>
-      {breakfastCart.map((breakfastItem)=> (
-        <BreakfastCart
-        key={breakfastCart.id}
-        breakfastItem={breakfastItem}
-        order={order}
-        setOrder={setOrder}
-        setBreakfast={setBreakfast}
-        />
-      ))}
-    </Fragment>
-  );
-
-
-      /* <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */
-}
-
+    <Router>
+      <div className='changeView'>
+<Routes>
+<Route path='/' exact element={<Home />} />
+<Route path='/Login' element={<Login />} />
+<Route path='/Menu' element={<Menu />} />
+<Route path='/TableOrders' element={<TableOrders />} />
+<Route path='/AdminMenu' element={<AdminMenu />} />
+<Route path='/AdminRegister' element={<AdminRegister />} />
+<Route path='/Home' exact element={<Home />} />
+</Routes>
+</div>
+</Router>
+);
+  }
+  
 export default App;
