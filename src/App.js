@@ -6,7 +6,6 @@ Route,
 // Link
 } from 'react-router-dom';
 
-import  Home  from './components/Home';
 import  Login  from './components/Login';
 import  Menu  from './components/Menu';
 import  TableOrders  from './components/TableOrders';
@@ -21,13 +20,12 @@ export function App() {
     <Router>
       <div className='changeView'>
 <Routes>
-<Route path='/' exact element={<Home />} />
+<Route path='/' exact element={<Login />} />
 <Route path='/Login' element={<Login />} />
 <Route path='/Menu' element={<Menu />} />
 <Route path='/TableOrders' element={<TableOrders />} />
 <Route path='/AdminMenu' element={<AdminMenu />} />
 <Route path='/AdminRegister' element={<AdminRegister />} />
-<Route path='/Home' exact element={<Home />} />
 </Routes>
 </div>
 </Router>
