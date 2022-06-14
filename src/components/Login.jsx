@@ -1,42 +1,77 @@
-import React, { useRef } from 'react'
-import app from '../Firebase/config-FB';
-import {
-    Link
-    } from 'react-router-dom';
+import React from 'react';
+import { useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
+//import "./styles.css";
 
 const Login =() =>{
-    const emailRef = useRef();
-    const passwordRef = useRef();
-/*     const loginClick =()=>{
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
-        console.log(email);
-        //fire.auth().signInWith
-    } */
+    const [user, setUser]= useState({
+        email:'',
+        password:'',
+    });
+    const { login } = useAuth();
+    const [error,setError]= useState();
+    const navigate= useNavigate();
+ 
+    const handleChange =({target:{name,value}}) =>
+setUser({ ...user, [name]: value });
+
+    const handleSubmit= async (e) =>{
+        e.preventDefault();      
+        setError('');
+    try {
+    await login(user.email, user.password);
+      navigate('/Login');
+    } catch (error) {
+        console.log(error.code);
+        if(error.code === 'auth/internal-error'){
+        /* switch(error){
+            case 'auth/invalid-email':
+                setError('Correo inválido');
+                break;
+            case 'auth/email-already-in-use':
+                setError('Cuenta ya en uso');
+                break;
+            case 'auth/weak-password':
+                setError('Contraseña debe contener mínimo 6 dígitos');
+            break;
+            default:
+        } */
+    setError(error.message);
+    }
+  };
+    }
+const navigateOrders=useNavigate()
+const btnHome =()=>{
+    navigateOrders('/Home');
+}
 
     return(
-        
-        <div className='login-container'>
-            <div className='login-box'>
-        <h2>Iniciar sesión</h2>
-        <hr></hr>
-        <select>
+        <div className='login-page'>
+            <form className='login-container' onSubmit={handleSubmit}>
+                <h2>Iniciar sesión</h2>
+                <input type='email' className='login-inputs' 
+                onChange={handleChange} placeholder='juanperez@bq.com'/>
+                <input type='password' className='login-inputs' 
+                onChange={handleChange} placeholder='contraseña'/>
+                <select id ='user' className='select-user'>
                 <option disabled selected>Seleccione su cargo</option>
                 <option value='Mesero'>Mesero</option>
                 <option value='Admin'>Admin</option>
                 <option value='Cocina'>Cocina</option>
             </select>
-        <form>
-            <input
-            id ='email' type='email' ref={emailRef} placeholder='📧 juanperez@bq.com' required/><br/><br/>
-            <input
-            id='password' type='password'ref={passwordRef} placeholder='🔒contraseña' required/>
-            <button type='submit' className='login-btn' onClick={loginClick}>INGRESAR</button>
-        </form>
-        </div>
-        </div>
+                
+                <button className='login-button' type= 'submit' onClick={btnHome}>
+                    Inicia sesión
+                </button>
+                          
+                    <p> No tienes cuenta?
+                    <button type= 'submit'><Link to='/Register' className='login-link'>Register</Link></button>
+                    </p>                 
+            
+                </form> 
+                </div>  
     )
-}
-
-
-export default Login
+};
+export default Login;
