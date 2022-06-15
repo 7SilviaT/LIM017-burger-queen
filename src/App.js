@@ -4,6 +4,8 @@ BrowserRouter as Router,
 Routes,
 Route,
 } from 'react-router-dom'; 
+import './style.css';
+import {AuthProvider} from './context/AuthContext';
 
 
 import  Login  from './components/Login';
@@ -15,17 +17,20 @@ import  AdminMenu  from './components/HomeNav/AdminItems'; */
 
       
 const App = () =>{
-    return(
+    
+  return(
+      <AuthProvider>
       <div className='changeView'>
         <Router>
       <Routes>
 <Route exact path='/' element={<Login />} />
 <Route path='/Login' element={<Login />} />
 <Route path='/Register' element={<Register />} />
-<Route path='/Home' element={<Home />} />
+<Route path='/HomeMain' element={<Home />} />
 </Routes>
         </Router>
       </div>
+      </AuthProvider>
     )
 }
 

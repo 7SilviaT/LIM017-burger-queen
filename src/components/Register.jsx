@@ -1,48 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate  } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-
-//import "../styles.css";
+import { authContext } from '../context/AuthContext';
 
 const Register = () =>{
-  const { signup } = useAuth;
-
-  const [user, setUser]= useState({
-    email:'',
-    password:'',
-  });
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   
-  const [error,setError]= useState('');
+  //const  signup = useAuth;
+  const contextValue = useContext(authContext);
+    console.log(contextValue);
   const navigate= useNavigate();
 
+/*   const handleChange =({target:{name,value}}) =>
+  setUser({ ...user, [name]: value }); */
 
   const handleSubmit= async (e) =>{
       e.preventDefault();      
-      setError('');
   try {
-  await signup(user.email, user.password);
-    navigate('/Home');
+    console.log(email, password);
+    await contextValue.signup(email, password);
+    navigate('/HomeMain');
   } catch (error) {
     console.log(error.message);
-    if(error.code === 'auth/internal-error'){
+/*     if(error.code === 'auth/internal-error'){
     setError('Correo inválido');
-  }
+  } */
   }
 };
     return(
       <div className='register-page'>
       <form className='register-container' onSubmit={handleSubmit}>
-          <h2>Registro</h2>
+          <h2>REGISTRARSE</h2>
           <input 
           type='email' 
           className='register-inputs' 
-          onChange={(e) => setUser({...user,email:e.target.value})} 
+          onChange={e=>setEmail(e.target.value)} 
           placeholder='juanperez@bq.com'
           />
           <input 
           type='password' 
           className='register-inputs' 
-          onChange={(e) => setUser({...user,password:e.target.value})} 
+          onChange={e=>setPassword(e.target.value)} 
           placeholder='contraseña'/>
                     
           <button className='register-button'>
@@ -50,8 +49,9 @@ const Register = () =>{
           </button>
      <p>
         Ya tienes cuenta?
-        <Link to="/Login" className='login-link'></Link>
+        <button><Link to="/Login" className='login-link'></Link>
           Inicia sesion
+        </button>
       </p>
       </form>
   </div>
