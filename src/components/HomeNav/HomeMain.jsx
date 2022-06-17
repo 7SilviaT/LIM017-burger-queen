@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 //import 'import "../styles.css";';
 
 export const Home =() =>{
-    const { logout, user } = useAuth();
+    const { logout } = useAuth();
     const navigate= useNavigate();
 
     const handleLogout = async () => {
@@ -19,9 +19,8 @@ export const Home =() =>{
     
     return(
         <div className='home-page'>
-            Navegacion
             <nav>
-                <p className='welcome-text_nav'> Bienvenido {user.displayName || user.email} </p>
+                <p className='welcome-text_nav'> Bienvenido </p>
                 <ul>
                     <li>Pedidos</li>
                     <li>Cocina</li>

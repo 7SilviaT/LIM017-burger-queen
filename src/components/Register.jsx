@@ -6,27 +6,37 @@ import { authContext } from '../context/AuthContext';
 const Register = () =>{
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  
-  //const  signup = useAuth;
+  const [error,setError]=useState();
+
   const contextValue = useContext(authContext);
-    console.log(contextValue);
   const navigate= useNavigate();
 
-/*   const handleChange =({target:{name,value}}) =>
-  setUser({ ...user, [name]: value }); */
 
-  const handleSubmit= async (e) =>{
-      e.preventDefault();      
-  try {
+  const handleSubmit= (e) =>{
+      e.preventDefault();  
+      setError('');    
+
     console.log(email, password);
-    await contextValue.signup(email, password);
-    navigate('/HomeMain');
-  } catch (error) {
-    console.log(error.message);
-/*     if(error.code === 'auth/internal-error'){
-    setError('Correo inválido');
-  } */
-  }
+    contextValue.signup(email, password)
+    .then ( ()=>navigate('/Login'))
+    .catch((error)=>{
+      console.log(error.code,'imprimimos algo en register');
+      switch(error.code){
+        case '':
+          setError ('Campo vacío.Ingrese su email');
+          break
+        case 'auth/invalid-email':
+            setError('Correo inválido');
+            break;
+        case 'auth/email-already-in-use':
+            setError('Cuenta ya en uso');
+            break;
+        case 'auth/weak-password':
+            setError('Contraseña debe contener mínimo 6 dígitos');
+        break;
+        default:setError ('Otro error');
+    } 
+    })
 };
     return(
       <div className='register-page'>
@@ -37,21 +47,31 @@ const Register = () =>{
           className='register-inputs' 
           onChange={e=>setEmail(e.target.value)} 
           placeholder='juanperez@bq.com'
+          required
           />
           <input 
           type='password' 
           className='register-inputs' 
           onChange={e=>setPassword(e.target.value)} 
-          placeholder='contraseña'/>
-                    
-          <button className='register-button'>
+          placeholder='contraseña'
+          required
+          />
+          <input 
+          type='password' 
+          className='register-inputs' 
+          onChange={e=>setPassword(e.target.value)} 
+          placeholder='repetir contraseña'
+          required
+          />
+           <p>{error}</p>         
+          <button className='register-button' type='submit' onClick={handleSubmit}>
               Registrarse
           </button>
      <p>
         Ya tienes cuenta?
-        <button><Link to="/Login" className='login-link'></Link>
+        <Link to= '/Login' className='register-link'>
           Inicia sesion
-        </button>
+        </Link>
       </p>
       </form>
   </div>

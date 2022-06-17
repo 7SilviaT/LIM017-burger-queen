@@ -9,23 +9,18 @@ import { auth } from '../Firebase/configFirebase.js';
 
 export const authContext = createContext();
 
-export const useAuth = () => {
-  const context = useContext(authContext);
-  return context;
-};
+export const useAuth = () => useContext(authContext);
+
 
 export function AuthProvider({ children }) {
-
+console.log(children.email);
 /*   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); */
 
   const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-  const login = (email, password) => {
-    const userCredential = signInWithEmailAndPassword(auth, email, password)
-    console.log(userCredential);
-  }
-
+  const login = (email, password) =>  signInWithEmailAndPassword(auth, email, password);
+  
   const logout = () => signOut(auth);
 
   /* useEffect(() => {
