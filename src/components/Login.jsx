@@ -4,7 +4,6 @@ import { Link,useNavigate } from 'react-router-dom';
 import { authContext } from '../context/AuthContext';
 
 const Login = () =>{
-    //const [user,setUser]=useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [error,setError]=useState();
@@ -67,9 +66,9 @@ const Login = () =>{
                 
                 <p>{error}</p>
                 <button className='login-button' type= 'submit'>
-                    Inicia sesión
+                    Ingresar
                 </button>                       
-                    <p> No tienes cuenta?<Link to='/Register' className='login-link'>Registrarse</Link></p>       
+                    <p> No tienes cuenta?<Link to='/Register' className='login-link'>Regístrate</Link></p>       
             
                 </form> 
                 </div>  

@@ -1,9 +1,5 @@
 /* 
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 .login-container{
   background-image:url('./pics/login-background.png');
   background-position: center;
@@ -85,6 +81,10 @@ body {
   background-color: #FFD29D;;
   padding: 50px;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+h2{
+  color: #A41623;
 }
 hr{
   border: 1px solid red;
@@ -98,13 +98,39 @@ hr{
 .select-user{
   margin-bottom: 10px;
   margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
 }
 .login-button, .register-button {
   background-color: #A41623;
-  padding: 10px;
+  font-family: 'Nunito', sans-serif;
+  color: white;
   font-size: 18px;
   margin-bottom: 10px;
-  border: none; 
+  border: solid transparent;
+  border-radius: 16px; 
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+p{
+  color: #A41623;
+
 }
 .login-btn a{
   text-decoration: none;
@@ -112,4 +138,15 @@ hr{
 }
 .login div {
   margin-top: 7px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
 }

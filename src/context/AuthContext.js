@@ -14,7 +14,7 @@ export const useAuth = () => useContext(authContext);
 
 export function AuthProvider({ children }) {
 console.log(children.email);
-/*   const [user, setUser] = useState(null);
+/*   ;
   const [loading, setLoading] = useState(true); */
 
   const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password);
@@ -22,6 +22,7 @@ console.log(children.email);
   const login = (email, password) =>  signInWithEmailAndPassword(auth, email, password);
   
   const logout = () => signOut(auth);
+  
 
   /* useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {

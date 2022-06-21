@@ -10,15 +10,16 @@ import {AuthProvider} from './context/AuthContext';
 
 import  Login  from './components/Login';
 import  Register  from './components/Register';
-import  Home  from './components/HomeNav/HomeMain';
+import  Home  from './components/HomeNav/HomeView/HomeMain';
 /* import  Orders  from './components/HomeNav/WaiterOrders';
 import  TableOrders  from './components/HomeNav/KitchenOrders';
 import  AdminMenu  from './components/HomeNav/AdminItems'; */
 
+
       
 const App = () =>{
     
-  return(
+  return(    
       <AuthProvider>
       <div className='changeView'>
         <Router>
