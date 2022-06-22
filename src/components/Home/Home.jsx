@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,Link } from 'react';
 import { useNavigate  } from 'react-router-dom';
-import { authContext } from '../../../context/AuthContext';
-import { auth } from '../../../Firebase/configFirebase';
+import { authContext } from '../../context/AuthContext';
+import { auth } from '../../Firebase/configFirebase';
+import  logoutIcon  from '../../icons/logoutIcon.png';
 
 
-import './HomeMain.css'
+import './style.css'
 
 export const Home =() =>{
   
@@ -13,16 +14,6 @@ export const Home =() =>{
   const contextValue = useContext(authContext);
   const navigate= useNavigate();
   let user = auth.currentUser.email; 
-
-  // estado de desayuno con listado de productos
-  const [breakfastCart, setBreakfast] = useState([
-    { id:1, nombre:'Café americano', precio: 5 },
-    { id:2, nombre:'Café con leche', precio: 7},
-    { id:3, nombre:'Sandwich de jamón y queso', precio: 10 },
-    { id:4, nombre:'Jugo natural', precio: 7 },
-  ])
-  // estado de la orden(carrito)
-const [order, setOrder] = useState([])
 
 //evento logout
     const handleLogout =  (e) => {
@@ -38,15 +29,18 @@ const [order, setOrder] = useState([])
             <nav>
                 
                 <ul>
-                    <li onChange={e=>setEmail(e.target.value)}> Bienvenido {user} <strong></strong>   </li>
-                    <li>Pedidos</li>
+                    <li onChange={e=>setEmail(e.target.value)}> 
+                    Bienvenido  <strong>{user}</strong>   
+                    </li>
+                    <li>Menu</li>
+                    <li><Link to='/WaiterOrders'>Estado de pedidos</Link></li>
                     <li>Cocina</li>
                     <li>Admin Menu</li>
-                    <li><button onClick={handleLogout}>Cerrar sesión</button></li>
+                    <li><img src={logoutIcon} className= 'logout-icon' alt='exit'onClick={handleLogout}/></li>
                 </ul>
             </nav>
-            //hook que sera un contenedor
-    <>
+
+    {/* <>
       <button className='breakfast_btn-title'><h3>Desayuno</h3></button>
       {breakfastCart.map((breakfastItem)=> (
         <BreakfastCart
@@ -57,7 +51,7 @@ const [order, setOrder] = useState([])
         setBreakfast={setBreakfast}
         />
       ))}
-    </>
+    </> */}
 
         </div>
     );

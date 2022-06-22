@@ -1,0 +1,144 @@
+/* 
+
+.login-container{
+  background-image:url('./pics/login-background.png');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-box{
+    background-color: #FFD29D;
+    color: black;
+    font-family: Verdana;
+    text-align: center;
+    width: 350px;
+    height: 340px;
+    padding: 14px;
+    margin: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.login-box input{
+width:80%;
+height:25%;
+margin-top:8px;
+border-radius:10px;
+}
+.login-box select{
+  width:45%;
+  height:15%;
+  margin-top:5px;
+  }
+h2{
+  color: #A41623;
+  font-size: 35px;
+  margin-top: 1px;
+  margin-bottom:1px;
+}
+hr {
+  border: 1.5px solid black;
+  width:350px;
+}
+.login-btn{
+  background-color: #A41623;
+    border-radius: 30px;
+    padding: 4px 45px;
+    margin: 20px;
+    font-size: 20px;
+    font-family: Verdana;
+}
+.login-btn a{
+  text-decoration: none;
+  color:white;
+} */
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+  }
+  .login-page, .register-page {
+    background-image:url('../../pics/login-background.png');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-container, .register-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #FFD29D;;
+    padding: 50px;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+  h2{
+    color: #A41623;
+  }
+  hr{
+    border: 1px solid red;
+  }
+  .login-inputs, .register-inputs {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius:10px;
+  }
+  .select-user{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .login-button, .register-button {
+    background-color: #A41623;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: solid transparent;
+    border-radius: 16px; 
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+  }
+  p{
+    color: #A41623;
+  
+  }
+  .login-btn a{
+    text-decoration: none;
+    color: white;
+  }
+  .login div {
+    margin-top: 7px;
+  }
+  
+  
+  

@@ -1,0 +1,21 @@
+nav{
+    background-color: #A41623;
+    color:white;
+    font-size:16px;
+}
+
+img{
+    width:15px;
+    height:15px;   
+}
+
+ul {
+    list-style-type: none;
+    margin: 50px;
+    padding: 50px;
+  }
+
+  li {
+    display: inline;
+  }
+
