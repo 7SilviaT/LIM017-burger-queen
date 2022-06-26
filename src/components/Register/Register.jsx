@@ -3,6 +3,8 @@ import { useState, useContext } from 'react';
 import { Link, useNavigate  } from 'react-router-dom';
 import { authContext } from '../../context/AuthContext';
 
+import './Register.css'
+
 const Register = () =>{
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -41,7 +43,7 @@ const Register = () =>{
     return(
       <div className='register-page'>
       <form className='register-container' onSubmit={handleSubmit}>
-          <h2>REGISTRARSE</h2>
+          <h2>CREAR CUENTA</h2>
           <input 
           type='email' 
           className='register-inputs' 

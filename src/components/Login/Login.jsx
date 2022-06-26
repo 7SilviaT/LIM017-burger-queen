@@ -18,7 +18,7 @@ const Login = () =>{
         setError('');
 
         contextValue.login(email, password)
-        .then ( ()=>navigate('/HomeMain'))
+        .then ( ()=>navigate('/Home'))
         .catch ((error) => {
             console.log(error.code,'imprimimos algo en login');
             switch(error.code){

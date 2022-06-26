@@ -4,7 +4,6 @@ BrowserRouter as Router,
 Routes,
 Route,
 } from 'react-router-dom'; 
-import './style.css';
 import {AuthProvider} from './context/AuthContext';
 
 import  Login  from './components/Login/Login';

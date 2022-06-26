@@ -1,64 +1,3 @@
-/* 
-
-.login-container{
-  background-image:url('./pics/login-background.png');
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.login-box{
-    background-color: #FFD29D;
-    color: black;
-    font-family: Verdana;
-    text-align: center;
-    width: 350px;
-    height: 340px;
-    padding: 14px;
-    margin: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-}
-.login-box input{
-width:80%;
-height:25%;
-margin-top:8px;
-border-radius:10px;
-}
-.login-box select{
-  width:45%;
-  height:15%;
-  margin-top:5px;
-  }
-h2{
-  color: #A41623;
-  font-size: 35px;
-  margin-top: 1px;
-  margin-bottom:1px;
-}
-hr {
-  border: 1.5px solid black;
-  width:350px;
-}
-.login-btn{
-  background-color: #A41623;
-    border-radius: 30px;
-    padding: 4px 45px;
-    margin: 20px;
-    font-size: 20px;
-    font-family: Verdana;
-}
-.login-btn a{
-  text-decoration: none;
-  color:white;
-} */
-
 body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
@@ -74,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
   }
-  .login-container, .register-container {
+  .login-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -85,11 +24,15 @@ body {
   }
   h2{
     color: #A41623;
+    font-size: 35px;
+    margin-top: 1px;
+    margin-bottom:1px;
   }
   hr{
     border: 1px solid red;
+    width:fit-content;
   }
-  .login-inputs, .register-inputs {
+  .login-inputs {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
@@ -100,7 +43,7 @@ body {
     margin-top: 10px;
     font-family: 'Nunito', sans-serif;
   }
-  .login-button, .register-button {
+  .login-button {
     background-color: #A41623;
     font-family: 'Nunito', sans-serif;
     color: white;
@@ -136,8 +79,12 @@ body {
     text-decoration: none;
     color: white;
   }
-  .login div {
-    margin-top: 7px;
+  
+   /* Responsive for desktop */
+  @media only screen and (max-width: 768px) {
+    body {
+      background-color: green;
+    }
   }
   
   

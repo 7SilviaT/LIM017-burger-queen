@@ -5,7 +5,7 @@ import { auth } from '../../Firebase/configFirebase';
 import  logoutIcon  from '../../icons/logoutIcon.png';
 
 
-import './style.css'
+import './Home.css';
 
 export const Home =() =>{
   

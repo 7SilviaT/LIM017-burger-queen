@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFD29D;
+  }
+
+/* Responsive for desktop */
+@media only screen and (max-width: 768px) {
+ body {
+background-color: green;
+ }
+}
