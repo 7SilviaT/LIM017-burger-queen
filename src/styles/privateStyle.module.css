@@ -1,0 +1,9 @@
+.main {
+    background-color: #ffd29d;
+    padding: 0 2em;
+  }
+  
+  .containerHome {
+    display: flex;
+  }
+  

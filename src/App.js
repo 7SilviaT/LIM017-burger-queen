@@ -1,35 +1,18 @@
-import React from 'react';
- import {
-BrowserRouter as Router,
-Routes,
-Route,
-} from 'react-router-dom'; 
-import {AuthProvider} from './context/AuthContext';
+import Rutas from "./routes";
+import AuthState from "./context/auth/AuthState";
+import MenuState from "./context/menu/MenuState";
+import OrdersState from "./context/orders/OrdersState";
 
-import  Login  from './components/Login/Login';
-import  Register  from './components/Register/Register';
-import  Home  from './components/Navigator/index';
-
-
-      
-const App = () =>{
-    
-  return(    
-      <AuthProvider>
-      <div className='changeView'>
-        <Router>
-      <Routes>
-<Route exact path='/' element={<Login />} />
-<Route path='/Login' element={<Login />} />
-<Route path='/Register' element={<Register />} />
-<Route path='/Home' element={<Home />} />
-</Routes>
-        </Router>
-      </div>
-      </AuthProvider>
-    )
+function App() {
+  return (
+    <AuthState>
+      <MenuState>
+        <OrdersState>
+          <Rutas />
+        </OrdersState>
+      </MenuState>
+    </AuthState>
+  );
 }
 
 export default App;
-
-  
