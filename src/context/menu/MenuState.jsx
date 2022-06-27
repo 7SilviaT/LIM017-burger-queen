@@ -8,7 +8,7 @@ const MenuState = ({ children }) => {
   const initialState = {
     menu: [],
     menuSelect: [],
-    category: ["Desayuno", "Almuero / Cena"],
+    category: ["Desayuno", "Almuerzo / Cena"],
   };
 
   const getMenu = async () => {
@@ -21,6 +21,7 @@ const MenuState = ({ children }) => {
           menuId: item.id,
           ...item.data(),
         });
+        console.log(menu);
       });
 
       const menuSelect = menu.filter((item) => item.category === "Desayuno");
@@ -31,7 +32,9 @@ const MenuState = ({ children }) => {
           menuSelect: menuSelect,
         },
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const selectMenu = (itemFilter) => {

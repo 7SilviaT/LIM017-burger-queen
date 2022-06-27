@@ -5,6 +5,7 @@ const MenuOptions = ({ category, selectMenu, menuSelect, addOrder }) => {
   const [categorySelect, setCategorySelect] = useState("Desayuno");
 
   const handleClick = (item) => {
+    console.log(menuSelect);
     selectMenu(item);
     setCategorySelect(item);
   };
