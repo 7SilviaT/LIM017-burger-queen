@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
+import { BiTrash } from 'react-icons/bi'
 
 const ItemOrder = ({ order, updatedOrder, deleteOrder }) => {
   return (
@@ -12,7 +13,7 @@ const ItemOrder = ({ order, updatedOrder, deleteOrder }) => {
       <p className={style.itemName}>{order.product}</p>
       <p className={style.itemPrice}>S/. {order.price * order.quantity}</p>
       <div>
-        <button onClick={deleteOrder}>eliminar</button>
+        <button onClick={deleteOrder}><BiTrash /></button>
       </div>
     </div>
   );

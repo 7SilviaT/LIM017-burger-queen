@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import style from "./header.module.css";
+import { AiOutlinePoweroff } from 'react-icons/ai'
+
 
 import AuthContext from "../../context/auth/AuthContext";
 
@@ -17,8 +19,8 @@ const Header = () => {
           <li className={style.item}>Cocina</li>
           <li className={style.item}>Admin</li>
         </ul>
-        <div>
-          <button onClick={cerrarSesion}>Cerrar sesión</button>
+        <div className={style.button}>
+          <button  onClick={cerrarSesion}><AiOutlinePoweroff /></button>
         </div>
       </div>
     </section>

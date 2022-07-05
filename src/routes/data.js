@@ -1,17 +1,18 @@
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
-import Loigin from "../pages/Login";
+import Login from "../pages/Login";
 import Register from "../pages/Register";
 
 import Home from "../pages/Home";
+import Kitchen from "../pages/Kitchen";
 
 export const listRoute = [
   {
     path: "/",
     element: (
       <PublicRoute>
-        <Loigin />
+        <Login />
       </PublicRoute>
     ),
   },
@@ -28,6 +29,14 @@ export const listRoute = [
     element: (
       <PrivateRoute>
         <Home />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/kitchen",
+    element: (
+      <PrivateRoute>
+        <Kitchen />
       </PrivateRoute>
     ),
   },
