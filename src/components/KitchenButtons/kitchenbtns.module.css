@@ -1,0 +1,39 @@
+.btnRed {
+  background-color: red;
+  color: white;
+}
+.btnBlue {
+  background-color: skyblue;
+  color: white;
+}
+.btnYellow {
+  background-color: yellow;
+  /* color: white; */
+}
+
+/* //Pantallas muy pequeñas  (móviles en portrait de menos de 576px)
+//No hace falta media-query porque será nuestro diseño por defecto */
+
+/* //Pantallas pequeñas (móviles en landscape de más de 576px) */
+/* @media (min-width: 576px) {
+  .btnRed {
+    background-color: pink;
+    color: brown;
+  }
+} */
+
+/* //Pantallas medianas (tablets de más de 768px) */
+@media (min-width: 768px) {
+    .btnRed {
+        background-color: orange;
+        color: brown;
+      }
+}
+
+/* //Pantallas grandes (desktops de más de 992px) */
+@media (min-width: 992px) {
+}
+
+/* //Pantallas muy grandes (desktops de más de 1200px) */
+@media (min-width: 1200px) {
+}
