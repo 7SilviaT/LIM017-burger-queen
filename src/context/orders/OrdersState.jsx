@@ -47,6 +47,7 @@ const OrdersState = ({ children }) => {
       total: state.total,
       table: data.table,
       client: data.client,
+      status:'pedidos en mesa',
     };
 
     try {

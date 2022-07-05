@@ -6,53 +6,49 @@ const Kitchen = () => {
     const [ordersTaken,setOrdersTaken]= useState([]);
 
     useEffect(()=>{
-        const getOrdersTakenFirebase =[];
-        const client =db
-        .collection("orders")
-        .onSnapshot((querySnapshot) =>{
-            querySnapshot.forEach((doc)=>{
-                getOrdersTakenFirebase.push({
-                    ...doc.data(),
-                key:doc.id,
-            })
-            setOrdersTaken(getOrdersTakenFirebase);
-            setLoading(false);
-            })
-        })
-        // retorna una funcion limpia
-        return ()=>client();
+      fetchOrders()
     },[]);
-  
-    /* const getMenu = async () => {
-      try {
-        const info = await db.collection("orders").get();
-        const ordersTakenList = [];
-  
-        info.forEach((item) => {
-            ordersTakenList.push({
-            ordersId: item.id,
+  const fetchOrders =async()=> {
+    let getOrdersTakenFirebase =[];
+        const client =await db
+        .collection("orders").get();
+        client.forEach((item) => {
+          getOrdersTakenFirebase.push({
+            orderId: item.id,
             ...item.data(),
           });
-          console.log(menu);
+          //console.log(menu);
         });
-    }
-    catch(error){
-        console.log(error.code);
-    }
-    } */
-  if(loading){
-    return<h1> Cargando pedidos recientes</h1>
+        setLoading(false);
+        console.log(getOrdersTakenFirebase);
+        setOrdersTaken(getOrdersTakenFirebase);
 
   }
-       
     
+  if(loading){
+    return<h1> Cargando pedidos recientes</h1>
+  }           
     return (
       <div className="container">
         <div className="orders-container">
         <h1>pedidos:</h1>
-        {postMessage.lenght > 0 ? (
-            ordersTaken.map((post) => <div key={post.key}>{post.orders}</div>)
-        ):(<h1> aun no hay pedidos </h1>)}
+        {ordersTaken.map((post) => <div key={post.key}>
+              <ul>
+                {post.orders.map((item)=>
+
+                <li key={item.orderId}><div> <p>{post.client}</p>
+                
+                <p>{item.quantity}-{item.product}</p></div> </li>)}
+              </ul>
+            </div>)}
+        {/* {postMessage.lenght > 0 ? (
+            ordersTaken.map((post) => <div key={post.key}>
+              <ul>
+                {post.orders.map((item)=>
+                <li key={item.orderId}>{item.product} - {item.quantity}</li>)}
+              </ul>
+            </div>)
+        ):(<h1> aun no hay pedidos </h1>)} */}
         </div>
       </div>
     )
