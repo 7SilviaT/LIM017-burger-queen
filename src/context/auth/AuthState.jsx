@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer,useState } from "react";
 import AuthContext from "./AuthContext";
 import reducer from "./AuthReducer";
 
@@ -13,6 +13,8 @@ const AuthState = ({ children }) => {
     email: null,
     consultando: true,
   };
+
+  const [error,setError]=useState();
 
   /**
    * FASE DE MONTAJE
@@ -65,11 +67,29 @@ const AuthState = ({ children }) => {
       const newUser = await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password);
+        setError('');
 
       await newUser.user.updateProfile({
         displayName: JSON.stringify({ position }),
       });
     } catch (error) {
+      console.log(error.code,'imprimimos algo en login');
+            switch(error.code){
+                case '':
+                    setError('Campos vacíos.Ingrese correo y contraseña');
+                    break;
+                case 'auth/user-not-found':
+                    setError('Usuario no registrado');
+                    break;
+                case 'auth/wrong-password':
+                    setError('Contraseña inválida.Intente nuevamente');
+                    break;
+                case 'auth/invalid-email':
+                    setError('Ingrese un correo válido');
+                break;
+                default:setError ('Otro error');
+            }
+
     } finally {
       dispatch({
         type: "UPLOAD_LOADING",
@@ -83,6 +103,7 @@ const AuthState = ({ children }) => {
       const { user } = await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
+        setError('');
 
       dispatch({
         type: "LOGIN",
@@ -90,6 +111,22 @@ const AuthState = ({ children }) => {
       });
     } catch (error) {
       console.log("mira el error", error);
+      console.log(error.code,'imprimimos algo en login');
+            switch(error.code){
+                case '':
+                    setError('Campos vacíos.Ingrese correo y contraseña');
+                    break;
+                case 'auth/user-not-found':
+                    setError('Usuario no registrado');
+                    break;
+                case 'auth/wrong-password':
+                    setError('Contraseña inválida.Intente nuevamente');
+                    break;
+                case 'auth/invalid-email':
+                    setError('Ingrese un correo válido');
+                break;
+                default:setError ('Otro error');
+            }
     }
   };
 
