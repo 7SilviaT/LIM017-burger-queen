@@ -1,105 +1,3 @@
-<<<<<<< HEAD
-.btnWhite {
-  background-color: whitesmoke;
-  color: #0D6425;
-  margin: 50px;
-  font-family: inherit;
-  padding: 0.6em 1.3em;
-  font-weight: 900;
-  font-size: 18px;
-  border: 3px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.btnOrange {
-  background-color: #FF9B85;
-  color: #0D6425;
-  margin: 50px;
-  font-family: inherit;
-  padding: 0.6em 1.3em;
-  font-weight: 900;
-  font-size: 18px;
-  border: 3px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.btnGreen {
-  background-color: yellow;
-  color: #0D6425;
-  margin: 50px;
-  font-family: inherit;
-  padding: 0.6em 1.3em;
-  font-weight: 900;
-  font-size: 18px;
-  border: 3px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.btnContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 50px;
-}
-
-/* .btnWhite,
-.btnOrange,
-.btnGreen {
-  font-family: inherit;
-  padding: 0.6em 1.3em;
-  font-weight: 900;
-  font-size: 18px;
-  border: 3px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-} */
-
-.btnWhite,
-.btnOrange,
-.btnGreen  :hover {
-  background-color: black;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
-}
-.btnWhite,
-.btnOrange,
-.btnGreen  :active {
-  transform: translateY(-1px);
-}
-
-/* //Pantallas muy pequeñas  (móviles en portrait de menos de 576px)
-  //No hace falta media-query porque será nuestro diseño por defecto */
-
-/* //Pantallas pequeñas (móviles en landscape de más de 576px) */
-/* @media (min-width: 576px) {
-    .btnRed {
-      background-color: pink;
-      color: brown;
-    }
-  } */
-
-/* //Pantallas medianas (tablets de más de 768px) */
-/* @media (min-width: 768px) {
-  .btntWhite {
-    background-color: orange;
-=======
 .btnRed {
   background-color: red;
   color: white;
@@ -120,24 +18,10 @@
 /* @media (min-width: 576px) {
   .btnRed {
     background-color: pink;
->>>>>>> dffa4de98696c54bc62466b71a1609ff19e5a0cb
     color: brown;
   }
 } */
 
-<<<<<<< HEAD
-/* //Pantallas grandes (desktops de más de 992px) */
-@media (min-width: 992px) {}
-
-/* //Pantallas muy grandes (desktops de más de 1200px) */
-@media (min-width: 1200px) {}
-
-@media (max-width: 1600px) {
-  .btnContainer{
-    justify-content: center;
-  }
-}
-=======
 /* //Pantallas medianas (tablets de más de 768px) */
 @media (min-width: 768px) {
     .btnRed {
@@ -153,4 +37,3 @@
 /* //Pantallas muy grandes (desktops de más de 1200px) */
 @media (min-width: 1200px) {
 }
->>>>>>> dffa4de98696c54bc62466b71a1609ff19e5a0cb
