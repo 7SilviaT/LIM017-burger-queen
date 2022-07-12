@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer,useState } from "react";
 import AuthContext from "./AuthContext";
 import reducer from "./AuthReducer";
+//import { Navigate } from 'react-router-dom';
 
 import { firebase } from "../../firebase";
 
@@ -8,13 +9,14 @@ const AuthState = ({ children }) => {
   const initialState = {
     /**DATA REGISTER */
     loading: false,
-
     isAuth: false,
     email: null,
     consultando: true,
+    position:'',
   };
 
   const [error,setError]=useState();
+  
 
   /**
    * FASE DE MONTAJE
@@ -42,7 +44,8 @@ const AuthState = ({ children }) => {
       console.log("mira el user", user);
       let autenticado;
       if (user?.uid) {
-        autenticado = true;
+        autenticado = true;      
+        
       } else {
         autenticado = false;
       }
@@ -67,7 +70,7 @@ const AuthState = ({ children }) => {
       const newUser = await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password);
-        setError('');
+        //setError('');
 
       await newUser.user.updateProfile({
         displayName: JSON.stringify({ position }),
@@ -78,11 +81,12 @@ const AuthState = ({ children }) => {
                 case '':
                     setError('Campos vacíos.Ingrese correo y contraseña');
                     break;
-                case 'auth/user-not-found':
-                    setError('Usuario no registrado');
+                case 'auth/email-already-in-use':
+                  console.log('entramos al',error.code);
+                    setError('Cuenta ya en uso');
                     break;
-                case 'auth/wrong-password':
-                    setError('Contraseña inválida.Intente nuevamente');
+                case 'auth/weak-password':
+                    setError('Contraseña debe contener 6 digitos');
                     break;
                 case 'auth/invalid-email':
                     setError('Ingrese un correo válido');
@@ -104,10 +108,11 @@ const AuthState = ({ children }) => {
         .auth()
         .signInWithEmailAndPassword(email, password);
         setError('');
+        console.log('el user es',user)
 
       dispatch({
         type: "LOGIN",
-        payload: { email: user.email, isAuth: true },
+        payload: { email: user.email, isAuth: true, position:JSON.parse(user.displayName).position },
       });
     } catch (error) {
       console.log("mira el error", error);
@@ -148,7 +153,7 @@ const AuthState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AuthContext.Provider value={{ state, signIn, logIn, cerrarSesion }}>
+    <AuthContext.Provider value={{ state, signIn, logIn, cerrarSesion,error }}>
       {children}
     </AuthContext.Provider>
   );

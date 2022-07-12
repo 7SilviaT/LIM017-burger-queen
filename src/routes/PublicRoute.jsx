@@ -6,12 +6,19 @@ import AuthContext from '../context/auth/AuthContext';
 const PublicRoute = ({ children }) => {
   // const [isAuth] = useState(false);
 
-  const { state: { isAuth, consultando } } = useContext(AuthContext);
+  const { state: { isAuth, consultando,position } } = useContext(AuthContext);
   // console.log('mira al state desde la ruta publica', isAuth);
 
   if (consultando) return <h1>Cargando ....</h1>
 
-  return <>{isAuth ? <Navigate to='/home' /> : children}</>;
+  return <>{
+      isAuth && position === 'kitchen' ?
+       <Navigate to='/kitchen' /> : 
+       position === 'admin' ? 
+       <Navigate to='/home' /> : 
+       position === 'waiter' ? 
+       <Navigate to='/home' /> : children
+        }</>;
 };
 
 export default PublicRoute;

@@ -5,6 +5,7 @@ const reducer = (state, action) => {
           ...state,
           email: action.payload.email,
           isAuth: action.payload.isAuth,
+          position: action.payload.position,
         };
   
       case "UPDATE_IS_AUTH":
