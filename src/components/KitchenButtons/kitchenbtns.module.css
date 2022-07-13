@@ -2,13 +2,22 @@
   background-color: red;
   color: white;
 }
+
 .btnBlue {
   background-color: skyblue;
   color: white;
 }
+
 .btnYellow {
   background-color: yellow;
   /* color: white; */
+}
+
+.kitchenButtonsContainer {
+  width: 42%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 /* //Pantallas muy pequeñas  (móviles en portrait de menos de 576px)
@@ -24,16 +33,14 @@
 
 /* //Pantallas medianas (tablets de más de 768px) */
 @media (min-width: 768px) {
-    .btnRed {
-        background-color: orange;
-        color: brown;
-      }
+  .btnRed {
+    background-color: orange;
+    color: brown;
+  }
 }
 
 /* //Pantallas grandes (desktops de más de 992px) */
-@media (min-width: 992px) {
-}
+@media (min-width: 992px) {}
 
 /* //Pantallas muy grandes (desktops de más de 1200px) */
-@media (min-width: 1200px) {
-}
+@media (min-width: 1200px) {}

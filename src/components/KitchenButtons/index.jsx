@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from "./kitchenbtns.module.css";
 
 const KitchenButtons = ({ setBtnSelect }) => {
   return (
-    <div>
+    <div className={style.kitchenButtonsContainer}>
       <button
         className={style.btnRed}
         onClick={() => setBtnSelect("pedidos en mesa")}

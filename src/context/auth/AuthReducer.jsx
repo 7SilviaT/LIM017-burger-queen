@@ -20,6 +20,7 @@ const reducer = (state, action) => {
           ...state,
           isAuth: false,
           email: null,
+          position: "",
         };
       case "UPLOAD_LOADING":
         return {

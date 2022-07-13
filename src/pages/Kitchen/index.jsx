@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import KitchenButtons from "../../components/KitchenButtons";
 import { db } from "../../firebase";
+import './style.css';
 
 const Kitchen = () => {
   const [btnSelect, setBtnSelect] = useState("pedidos en mesa");
@@ -8,8 +9,10 @@ const Kitchen = () => {
   const [ordersTaken, setOrdersTaken] = useState([]);
   const [filterOrder, setFilterOrder] = useState([]);
 
+
   useEffect(() => {
     fetchOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const fetchOrders = async () => {
     let getOrdersTakenFirebase = [];
@@ -39,7 +42,7 @@ const Kitchen = () => {
     setFilterOrder(filterOrders);
   };
 
-  const updateDateFirstore = async (order, textStatus) => {
+  const updateDateFirestore = async (order, textStatus) => {
     const orderUpdate = { ...order };
     orderUpdate.status = textStatus;
     delete orderUpdate.orderId;
@@ -54,39 +57,40 @@ const Kitchen = () => {
   }
   return (
     <div className="container">
-      <div className="orders-container">
-        <h1>pedidos:</h1>
-        <KitchenButtons setBtnSelect={updateFilter} />
-        {filterOrder.map((post) => (
-          <div key={post.orderId}>
-            <p>{post.client}</p>
-            <ul>
-              {post.orders.map((item) => (
-                <li key={item.orderId}>
-                  <div>
-                    {" "}
-                    <p>
-                      {item.quantity}-{item.product}
-                    </p>
-                  </div>{" "}
-                </li>
-              ))}
-            </ul>
-            {post.status === "pedidos en mesa" && (
-              <button
-                onClick={() => updateDateFirstore(post, "en preparacion")}
-              >
-                preparar
-              </button>
-            )}
-            {post.status === "en preparacion" && (
-              <button onClick={() => updateDateFirstore(post, "despacho")}>
-                completado
-              </button>
-            )}
-          </div>
-        ))}
-        {/* {postMessage.lenght > 0 ? (
+
+      <h1>Pedidos-Cocina</h1>
+      <KitchenButtons setBtnSelect={updateFilter} />
+      <div className='order-container' >{filterOrder.map((post) => (
+        <div className='order-container_client' key={post.orderId}>
+          <p>{post.client}</p>
+          <ul>
+            {post.orders.map((item) => (
+              <li key={item.orderId}>
+                <div>
+                  {" "}
+                  <p>
+                    {item.quantity}-{item.product}
+                  </p>
+                </div>{" "}
+              </li>
+            ))}
+          </ul>
+          {post.status === "pedidos en mesa" && (
+            <button
+              onClick={() => updateDateFirestore(post, "en preparacion")}
+            >
+              preparar
+            </button>
+          )}
+          {post.status === "en preparacion" && (
+            <button onClick={() => updateDateFirestore(post, "despacho")}>
+              completado
+            </button>
+          )}
+        </div>
+      ))}</div>
+
+      {/* {postMessage.lenght > 0 ? (
             ordersTaken.map((post) => <div key={post.key}>
               <ul>
                 {post.orders.map((item)=>
@@ -94,7 +98,6 @@ const Kitchen = () => {
               </ul>
             </div>)
         ):(<h1> aun no hay pedidos </h1>)} */}
-      </div>
     </div>
   );
 };

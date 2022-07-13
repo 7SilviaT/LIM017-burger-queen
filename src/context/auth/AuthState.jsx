@@ -116,7 +116,7 @@ const AuthState = ({ children }) => {
       });
     } catch (error) {
       console.log("mira el error", error);
-      console.log(error.code,'imprimimos algo en login');
+      console.log(error.code,'imprimimos algo en login-aqui');
             switch(error.code){
                 case '':
                     setError('Campos vacíos.Ingrese correo y contraseña');

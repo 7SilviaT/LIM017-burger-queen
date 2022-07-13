@@ -7,7 +7,7 @@ const PublicRoute = ({ children }) => {
   // const [isAuth] = useState(false);
 
   const { state: { isAuth, consultando,position } } = useContext(AuthContext);
-  // console.log('mira al state desde la ruta publica', isAuth);
+  console.log('mira al state desde la ruta publica', isAuth,consultando,position);
 
   if (consultando) return <h1>Cargando ....</h1>
 

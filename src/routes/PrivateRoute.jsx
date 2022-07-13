@@ -5,10 +5,9 @@ import AuthContext from "../context/auth/AuthContext";
 
 const PrivateRoute = ({ children }) => {
   const {
-    state: { isAuth, consultando, email },
-    cerrarSesion,
+    state: { isAuth, consultando }    
   } = useContext(AuthContext);
-  // console.log('mira al state', state);
+  console.log('mira al state', isAuth, consultando);
 
   if (consultando) return <h1>Cargando ....</h1>;
 
