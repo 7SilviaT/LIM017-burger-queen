@@ -1,16 +1,19 @@
+.btnWhite {
+  background-color: #EEEEEE;
+  color: black;
+  padding: 1em;
+}
+
 .btnRed {
-  background-color: red;
-  color: white;
+  background-color: #FF9B85;
+  color:black;
+  padding: 1em;
 }
 
-.btnBlue {
-  background-color: skyblue;
-  color: white;
-}
-
-.btnYellow {
-  background-color: yellow;
-  /* color: white; */
+.btnGreen {
+  background-color: #60D394;
+  color:black;
+  padding: 1em;
 }
 
 .kitchenButtonsContainer {

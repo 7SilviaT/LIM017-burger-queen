@@ -14,6 +14,7 @@ const Home = () => {
     useContext(OrdersContext);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     getMenu();
   }, []);
 

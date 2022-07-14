@@ -62,29 +62,31 @@ const Kitchen = () => {
       <KitchenButtons setBtnSelect={updateFilter} />
       <div className='order-container' >{filterOrder.map((post) => (
         <div className='order-container_client' key={post.orderId}>
-          <p>{post.client}</p>
+          <h3> PEDIDO</h3>
+          <p>Mesa: {post.table}</p>
+          <p>Cliente: {post.client}</p>
           <ul>
             {post.orders.map((item) => (
               <li key={item.orderId}>
                 <div>
                   {" "}
                   <p>
-                    {item.quantity}-{item.product}
+                    {item.quantity} {item.product}
                   </p>
                 </div>{" "}
               </li>
             ))}
           </ul>
           {post.status === "pedidos en mesa" && (
-            <button
-              onClick={() => updateDateFirestore(post, "en preparacion")}
-            >
-              preparar
+            <button className='order-button_client'
+              onClick={() => updateDateFirestore(post, "en preparacion")}>
+              PREPARAR
             </button>
           )}
           {post.status === "en preparacion" && (
-            <button onClick={() => updateDateFirestore(post, "despacho")}>
-              completado
+            <button className='order-button_client'
+            onClick={() => updateDateFirestore(post, "despacho")}>
+              COMPLETADO
             </button>
           )}
         </div>

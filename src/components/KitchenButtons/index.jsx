@@ -5,22 +5,22 @@ const KitchenButtons = ({ setBtnSelect }) => {
   return (
     <div className={style.kitchenButtonsContainer}>
       <button
-        className={style.btnRed}
+        className={style.btnWhite}
         onClick={() => setBtnSelect("pedidos en mesa")}
       >
-        pedidos en mesa
+        PEDIDOS EN MESA
       </button>
       <button
-        className={style.btnBlue}
+        className={style.btnRed}
         onClick={() => setBtnSelect("en preparacion")}
       >
-        en preparacion
+        EN PREPARACIÓN
       </button>
       <button
-        className={style.btnYellow}
+        className={style.btnGreen}
         onClick={() => setBtnSelect("despacho")}
       >
-        despacho
+        DESPACHO
       </button>
     </div>
   );
