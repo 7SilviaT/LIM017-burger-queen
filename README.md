@@ -1,5 +1,7 @@
 # Burger Queen
 
+Link del proyecto final: https://burger-queen-nu.vercel.app/home
+
 ## Índice
 
 * [1. Preámbulo](#1-preámbulo)
