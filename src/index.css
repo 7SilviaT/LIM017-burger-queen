@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    background-color: #ffd29d;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  .App {
+  }
+  

@@ -1,0 +1,28 @@
+.container {
+    background-color: #a41623;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+  
+  .welcome {
+    color: #fff;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .list {
+    display: flex;
+    list-style: none;
+  }
+  .item {
+    margin: 0 1em;
+    color: white;
+  }
+  .button{
+    background-color: #a41623;
+    color: white;
+  }

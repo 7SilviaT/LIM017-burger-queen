@@ -1,0 +1,50 @@
+.containerOptions {
+    flex: 1 50%;
+  }
+  .containerBtnOpntion {
+    margin-top: 1em;
+  }
+  .containerBtnOpntion > button {
+    margin-left: 1em;
+  }
+  .btnSelect {
+    background-color: #1a993d;
+    font-family: "Nunito", sans-serif;
+    color: white;
+    font-size: 18px;
+    border-radius: 16px;
+    font-weight: 700;
+    padding: 13px 16px;
+    text-align: center;
+  }
+  .btnNoSelect {
+    background-color: #a4c1ac;
+    font-family: "Nunito", sans-serif;
+    color: white;
+    font-size: 18px;
+    border-radius: 16px;
+    font-weight: 700;
+    padding: 13px 16px;
+    text-align: center;
+  }
+  
+  .listMenuOptions {
+    list-style: none;
+    padding: 1em;
+    padding-right: 70%;
+  }
+  
+  .itemMenu {
+    background-color: #f85e00;
+    font-family: "Nunito", sans-serif;
+    color: white;
+    font-size: 18px;
+    border-radius: 16px;
+    font-weight: 700;
+    padding: 13px 16px;
+    text-align: center;
+    margin-top: 1em;
+    cursor: pointer;
+  }
+  
+  
